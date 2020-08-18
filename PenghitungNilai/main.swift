@@ -14,6 +14,8 @@ print ("Masukkan total nilai yang akan dinilai", terminator: ": "); let total = 
 print("---------------------------------------")
 
 if let totalItem : Int = Int(total){
+    
+    //Menambah nilai sesuai dengan jumlah item yang telah dimasukkan
     var allValues = [Int]()
     for i in 1...totalItem {
         print("Masukkanlah item ke \(i)", terminator: ": "); let newItem = Int(readLine() ?? "") ?? 0
@@ -21,15 +23,19 @@ if let totalItem : Int = Int(total){
     }
     
     print("---------------------------------------")
-    var sum: Int = 0
     
+    //Menghitung total nilai dari nilai-nilai yang dimasukkan
+    var sum: Int = 0
     for (_, value) in allValues.enumerated() {
         sum += value
     }
     
+    //Menghitung rata-rata dari nila yang telah ditotalkan
     let average = sum / totalItem
-    var grade = ""
     
+    //Menentukan Grade dari nilai total
+    var grade = ""
+
     switch average {
     case 0..<40:
         grade = "E";
@@ -56,6 +62,7 @@ if let totalItem : Int = Int(total){
         grade = "Tidak valid";
     }
     
+    //Cek Kondisi Grade untuk meneruskan fungsi print
     if grade != "Tidak valid" {
         print("Anda mendapatkan Grade nilai \(grade) dari total nilai yang ada. \nAnda mendapatkan total nilai \(sum) dengan rata-rata \(average)")
     } else {
